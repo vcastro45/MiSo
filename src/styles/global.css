@@ -1,0 +1,21 @@
+html {
+	font-family: 'Roboto', Arial, Helvetica, sans-serif
+}
+
+html, body {
+	scroll-behavior: smooth;
+}
+
+.home-title {
+	font-size: 2.3em;
+	font-weight: 800;
+	letter-spacing: 1px;
+}
+
+.grow {
+	flex-grow: 1;
+}
+
+a {
+	text-decoration: none;
+}
