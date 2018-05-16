@@ -8,6 +8,7 @@
 		<v-layout wrap style="height: 100%;">
 		<v-spacer/>
 		<v-flex xs10 class="eye-frame">
+			<eye class="eye"/>
 			<router-link class="go-next" to="a-propos"><v-icon large class="white--text">mdi-chevron-down</v-icon></router-link>
 		</v-flex>
 		<v-flex xs1>
@@ -25,8 +26,13 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import Eye from './Eye.vue'
 
-@Component
+@Component({
+	components: {
+	  Eye
+	}
+})
 export default class Introduction extends Vue {
 }
 </script>
@@ -94,5 +100,10 @@ export default class Introduction extends Vue {
 
 .social > div:last-of-type {
   padding-bottom: 0;
+}
+
+.eye {
+	width: 100%;
+	height: 100%;
 }
 </style>
