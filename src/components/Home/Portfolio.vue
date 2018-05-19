@@ -19,18 +19,18 @@
 </template>
 
 <script lang="ts">
-  import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 
-  @Component
-  export default class Portfolio extends Vue {
-    frames: string[] = [
-      require('../../assets/portfolio/frame1.jpg'),
-      require('../../assets/portfolio/frame2.jpg'),
-      require('../../assets/portfolio/frame3.jpg'),
-      require('../../assets/portfolio/frame4.jpg'),
-      require('../../assets/portfolio/frame5.jpg')
-    ]
-  }
+@Component
+export default class Portfolio extends Vue {
+  frames: string[] = [
+    require('../../assets/portfolio/frame1.jpg'),
+    require('../../assets/portfolio/frame2.jpg'),
+    require('../../assets/portfolio/frame3.jpg'),
+    require('../../assets/portfolio/frame4.jpg'),
+    require('../../assets/portfolio/frame5.jpg')
+  ]
+}
 </script>
 
 <style scoped>

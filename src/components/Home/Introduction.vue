@@ -1,9 +1,10 @@
 <template>
-	<div class="introduction">
+	<div class="introduction" ref="introduction">
 		<v-layout wrap column justify-center class="bluebox white--text">
-		<v-flex shrink><h2 class="text-xs-center">Mickaël</h2></v-flex>
-		<v-flex shrink><h2 class="text-xs-center">Sossi</h2></v-flex>
-		<v-flex shrink><h5 class="text-xs-center">Graphiste Print / Web</h5></v-flex>
+		<v-flex shrink><h2 class="text-xs-center">Graphiste</h2></v-flex>
+		<v-flex shrink><h2 class="text-xs-center">Print</h2></v-flex>
+      <v-flex shrink><h2 class="text-xs-center">Webdesigner</h2></v-flex>
+      <v-flex shrink><h5 class="text-xs-center" style="letter-spacing: 0px">● ● ●</h5></v-flex>
 		</v-layout>
 		<v-layout wrap style="height: 100%;">
 		<v-spacer/>
@@ -16,7 +17,6 @@
 				<a href="https://www.behance.net/hello1818" class="flex shrink py-3"><v-icon>mdi-behance</v-icon></a>
 				<a href="https://www.facebook.com/mi.so.graphiste/" class="flex shrink py-3"><v-icon>mdi-facebook</v-icon></a>
 				<a href="https://www.linkedin.com/in/micka%C3%ABl-sossi-516560131/" class="flex shrink py-3"><v-icon>mdi-linkedin</v-icon></a>
-				<a href="#" class="flex shrink py-3"><v-icon>mdi-dribbble</v-icon></a>
 				<a href="https://www.instagram.com/mi.so_graphiste/" class="flex shrink py-3"><v-icon>mdi-instagram</v-icon></a>
 			</v-layout>
 		</v-flex>
@@ -29,9 +29,9 @@ import { Vue, Component } from 'vue-property-decorator'
 import Eye from './Eye.vue'
 
 @Component({
-	components: {
+  components: {
 	  Eye
-	}
+  }
 })
 export default class Introduction extends Vue {
 }
@@ -57,9 +57,9 @@ export default class Introduction extends Vue {
 }
 
 .bluebox h2 {
-  font-size: 5em;
-  line-height: .9em;
-  letter-spacing: 7px;
+  font-size: 3em;
+  line-height: 1.1em;
+  letter-spacing: 2px;
 }
 .bluebox h5 {
   font-size: 1.5em;

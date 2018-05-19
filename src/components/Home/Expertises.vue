@@ -79,6 +79,10 @@ export default class Expertises extends Vue {
 		padding: 90px;
 	}
 
+	.expertise-text {
+		font-family: 'AcherusGrotesque', Arial, Helvetica, sans-serif;
+	}
+
 	.expertise-text > div {
 		position: relative;
 		top: 50%;

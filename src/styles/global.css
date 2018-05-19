@@ -1,5 +1,9 @@
-html {
-	font-family: 'Roboto', Arial, Helvetica, sans-serif
+*:not(h1, h2, h3, h4, h5, h6) {
+	font-family: 'AcherusGrotesque', Arial, Helvetica, sans-serif
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 html, body {

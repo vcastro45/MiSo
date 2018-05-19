@@ -36,7 +36,7 @@ export default class APropos extends Vue {
 
 <style scoped>
 .miso-picture {
-	background-image: url('../../assets/miso-picture.png');
+	background-image: url('../../assets/miso-picture.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -55,6 +55,7 @@ export default class APropos extends Vue {
 
 .miso-resume p {
 	color: #7C8080;
+	font-family: 'AcherusGrotesque', Arial, Helvetica, sans-serif;
 }
 
 .miso-resume > p:first-of-type {

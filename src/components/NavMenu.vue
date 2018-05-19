@@ -42,7 +42,8 @@ export default class NavMenu extends Vue {
   .toolbar__items .btn {
     text-transform: initial !important;
     font-size: 1.2em;
-    font-weight: 300;
+    font-weight: bold;
+    font-family: 'AcherusGrotesque', Arial, Helvetica, sans-serif;
   }
 
   .toolbar__items .btn::after {
