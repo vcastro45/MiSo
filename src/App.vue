@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app">
+  <v-app id="app" class="white">
     <v-container fluid class="pa-0">
       <v-layout column>
         <nav-menu fixed/>
