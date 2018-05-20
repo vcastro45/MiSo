@@ -1,8 +1,8 @@
 <template>
 	<div class="a-propos" id="a-propos">
-		<v-layout wrap fill-height>
-			<v-flex xs12 md6 class="miso-picture"/>
-			<v-flex xs12 md6 class="miso-resume white--text">
+		<v-layout wrap fill-height justify-center>
+			<v-flex xs12 md5 class="miso-picture"/>
+			<v-flex xs12 md5 class="miso-resume white--text">
 				<h2>A PROPOS</h2>
 				<p>
 					Diplômé de la Fonderie de l’Image, je suis designer graphique et je vous
