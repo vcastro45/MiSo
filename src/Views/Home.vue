@@ -32,15 +32,15 @@ export default class Home extends Vue {
     let offsetTop = window.pageYOffset || document.documentElement.scrollTop
     forEach(this.$refs, (ref: any, key) => {
       if (offsetTop >= ref.$el.offsetTop - 60) {
-        if (this.$refs[key].$el !== this.focusOn) {
-          this.focusOn = this.$refs[key].$el
+        if ((this as any).$refs[key].$el !== this.focusOn) {
+          this.focusOn = (this as any).$refs[key].$el
         }
       }
     })
   }
 
   @Watch('focusOn')
-  onFocusOnChanged(newVal: any) {
+  onFocusOnChanged (newVal: any) {
     // console.log(this.focusOn)
   }
 

@@ -50,8 +50,9 @@ import { Vue, Component } from 'vue-property-decorator'
 import TextInput from '../TextInput.vue'
 
 @Component({
-  components: {TextInput},
-  TextInput
+  components: {
+    TextInput
+  }
 })
 export default class Contact extends Vue {
   valid: boolean = true
@@ -68,8 +69,12 @@ export default class Contact extends Vue {
       this.valid = false
     } else {
       this.valid = true
-      console.log('submit')
+      this.sendMessage()
     }
+  }
+
+  private sendMessage () {
+    // TODO
   }
 }
 </script>

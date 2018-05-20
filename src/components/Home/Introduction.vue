@@ -10,7 +10,7 @@
 		<v-spacer/>
 		<v-flex xs10 class="eye-frame">
 			<eye class="eye"/>
-			<router-link class="go-next" to="a-propos"><v-icon large class="white--text">mdi-chevron-down</v-icon></router-link>
+      <arrow to="a-propos" class="go-next"/>
 		</v-flex>
 		<v-flex xs1>
 			<v-layout column wrap justify-center fill-height class="social">
@@ -27,10 +27,12 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import Eye from './Eye.vue'
+import Arrow from '../Arrow.vue'
 
 @Component({
   components: {
-	  Eye
+	  Eye,
+    Arrow
   }
 })
 export default class Introduction extends Vue {
@@ -72,15 +74,11 @@ export default class Introduction extends Vue {
   background-color: #E6E6E6;
 }
 
-.introduction .go-next {
-  display: inline-block;
-  text-decoration: none;
-  background-color: #0031FF;
-  height: 40px;
+.go-next {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -100%);
 }
 
 .social i {

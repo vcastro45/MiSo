@@ -25,13 +25,13 @@
 </template>
 
 <script lang="ts">
-  import {Vue, Component, Prop} from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
-  @Component
-  export default class NavMenu extends Vue {
-    @Prop({type: Boolean, default: false})
-    fixed: boolean
-  }
+@Component
+export default class NavMenu extends Vue {
+  @Prop({ type: Boolean, default: false })
+  fixed: boolean
+}
 </script>
 
 <style scoped>
