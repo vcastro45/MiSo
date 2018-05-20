@@ -1,35 +1,42 @@
 <template>
-  <div class="nav-menu" :class="{ 'fixed': fixed }">
-  <v-toolbar color="transparent" light class="elevation-0" height="60px">
-    <v-spacer/>
-    <v-toolbar-items>
-      <router-link is="v-btn" to="a-propos" active-class="active" flat>à propos</router-link>
-      <router-link is="v-btn" to="expertises" active-class="active" flat>expertises</router-link>
-      <router-link is="v-btn" to="portfolio" active-class="active" flat>portfolio</router-link>
-      <router-link is="v-btn" to="contact" active-class="active" flat>contact</router-link>
-    </v-toolbar-items>
-    <v-spacer/>
-  </v-toolbar>
+  <div class="nav-menu white" :class="{ 'fixed': fixed }">
+    <v-layout wrap style="height: 60px">
+      <v-spacer/>
+      <v-flex xs12 md10 style="position:relative;">
+        <router-link :to="{ name: 'Home' }"><img class="logo hidden-sm-and-down" :src="require('../assets/logo.png')"
+                                                 alt="logo" height="35"></router-link>
+        <v-layout justify-center style="height: 100%;">
+          <v-toolbar-items>
+            <router-link is="v-btn" to="a-propos" active-class="active" flat :ripple="false">à propos</router-link>
+            <router-link is="v-btn" to="expertises" active-class="active" flat :ripple="false">expertises</router-link>
+            <router-link is="v-btn" to="portfolio" active-class="active" flat :ripple="false">portfolio</router-link>
+            <router-link is="v-btn" to="contact" active-class="active" flat :ripple="false">contact</router-link>
+          </v-toolbar-items>
+        </v-layout>
+        <router-link to="contact">
+          <div class="work-together primary--text hidden-sm-and-down">
+            Travaillons ensemble
+          </div>
+        </router-link>
+      </v-flex>
+      <v-spacer/>
+    </v-layout>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+  import {Vue, Component, Prop} from 'vue-property-decorator'
 
-@Component
-export default class NavMenu extends Vue {
-  @Prop({ type: Boolean, default: false })
-  fixed: boolean
-}
+  @Component
+  export default class NavMenu extends Vue {
+    @Prop({type: Boolean, default: false})
+    fixed: boolean
+  }
 </script>
 
 <style scoped>
   .nav-menu {
     z-index: 50;
-    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 80%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 80%, rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 80%, rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
   }
 
   .nav-menu.fixed {
@@ -56,7 +63,7 @@ export default class NavMenu extends Vue {
     height: 0;
     width: 0;
     border-radius: 9999px;
-    background-color: blue;
+    background-color: #0031FF;
     transition: all .15s ease-in-out;
   }
 
@@ -64,5 +71,36 @@ export default class NavMenu extends Vue {
     height: 8px;
     width: 8px;
     bottom: 5px;
+  }
+
+  .nav-menu /deep/ .btn__content::before {
+    background-color: initial !important;
+  }
+
+  .logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .work-together {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'AcherusGrotesque', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+  }
+
+  .work-together::before {
+    content: '';
+    height: 2px;
+    width: 30px;
+    margin-right: 5px;
+    background-color: #0031FF;
+    display: inline-block;
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
   }
 </style>
