@@ -1,5 +1,5 @@
 <template>
-  <div class="Home" v-scroll="onScroll">
+  <div class="Home">
     <introduction/>
     <a-propos ref="a-propos"/>
     <expertises ref="expertises"/>
@@ -14,7 +14,6 @@ import APropos from '@/components/Home/APropos.vue'
 import Expertises from '@/components/Home/Expertises.vue'
 import Portfolio from '@/components/Home/Portfolio.vue'
 import Contact from '@/components/Home/Contact.vue'
-import forEach from 'lodash/forEach'
 
 @Component({
   components: {
@@ -26,24 +25,6 @@ import forEach from 'lodash/forEach'
   }
 })
 export default class Home extends Vue {
-  focusOn: any = null
-
-  onScroll () {
-    let offsetTop = window.pageYOffset || document.documentElement.scrollTop
-    forEach(this.$refs, (ref: any, key) => {
-      if (offsetTop >= ref.$el.offsetTop - 60) {
-        if ((this as any).$refs[key].$el !== this.focusOn) {
-          this.focusOn = (this as any).$refs[key].$el
-        }
-      }
-    })
-  }
-
-  @Watch('focusOn')
-  onFocusOnChanged (newVal: any) {
-    // console.log(this.focusOn)
-  }
-
   @Watch('$route.name', { immediate: true })
   onRouteChanged (newVal: string | undefined) {
     let anchor = `#${newVal}`
