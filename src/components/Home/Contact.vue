@@ -20,7 +20,7 @@
           </v-flex>
         </v-layout>
       </v-flex>
-      <v-flex xs12 md6 class="blue-side hidden-sm-and-down">
+      <v-flex xs12 md6 class="blue-side">
         <v-form>
           <v-layout column class="pa-5">
             <v-flex xs12 v-show="!valid">

@@ -1,13 +1,16 @@
 <template>
   <div class="portfolio" id="portfolio">
     <v-layout wrap>
-      <v-flex xs12 style="padding: 0 90px">
-        <h2 class="home-title pb-5">PORTFOLIO</h2>
+      <v-flex xs12>
+        <v-layout column>
+          <v-flex><h2 class="home-title text-xs-center">PORTFOLIO</h2></v-flex>
+          <v-flex><h5 class="bluedots text-xs-center pt-2 pb-4 primary--text">● ● ●</h5></v-flex>
+        </v-layout>
       </v-flex>
 
       <v-flex xs12>
         <v-layout wrap>
-          <router-link to="#" class="flex xs12 md4" v-for="(frame, index) in frames" :key="index">
+          <router-link to="#" class="flex xs12 md4" v-for="(frame, index) in frames" :key="index" v-if="$vuetify.breakpoint.mdAndUp || frame.title || frame.text || frame.date || frame.img">
             <div
               class="portfolio-frame"
               :class="{ 'fullheight': $vuetify.breakpoint.smAndDown }"
@@ -26,8 +29,16 @@
       </v-flex>
 
       <v-flex xs12>
-        <v-layout wrap justify-center class="pt-5">
-          <v-flex v-for="(logo, index) in logos" :key="index" class="logo">
+        <v-layout wrap>
+          <v-flex xs12>
+            <img :src="require('../../assets/4raisons.jpg')" alt="4 bonnes raisons de faire appel à un freelance" class="quatre-raisons">
+          </v-flex>
+        </v-layout>
+      </v-flex>
+
+      <v-flex xs12>
+        <v-layout wrap justify-center class="py-5">
+          <v-flex :xs12="$vuetify.breakpoint.smAndDown" v-for="(logo, index) in logos" :key="index" class="logo" :class="{ 'py-3': $vuetify.breakpoint.smAndDown }">
             <img :src="logo" height="75"/>
           </v-flex>
         </v-layout>
@@ -37,95 +48,94 @@
 </template>
 
 <script lang="ts">
-  import {Vue, Component} from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 
-  type Frame = { img?: string, color: string, title?: string, text?: string, date?: string }
+type Frame = { img?: string, color: string, title?: string, text?: string, date?: string }
 
-  @Component
-  export default class Portfolio extends Vue {
-
-    private hexToRgb(hex: string) {
-      let result: any = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-      return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-      } : null;
+@Component
+export default class Portfolio extends Vue {
+  frames: Frame[] = [
+    {
+      img: require('../../assets/portfolio/frame1.jpg'),
+      color: '#0031FF',
+      title: 'OFFICE NOTARIAL LAVAL<br/>& LAVAL-CASSADOUR',
+      text: 'Création logo & univers<br/>graphique',
+      date: 'décembre 2017'
+    },
+    {
+      img: require('../../assets/portfolio/frame2.jpg'),
+      color: '#0031FF'
+    },
+    {
+      img: require('../../assets/portfolio/frame3.jpg'),
+      color: '#0031FF'
+    },
+    {
+      img: require('../../assets/portfolio/frame4.jpg'),
+      color: '#0031FF'
+    },
+    {
+      img: require('../../assets/portfolio/frame5.jpg'),
+      color: '#0031FF'
+    },
+    {
+      color: '#000000'
+    },
+    {
+      color: '#ff3399'
+    },
+    {
+      color: '#6683ff'
+    },
+    {
+      color: '#ffeb02'
+    },
+    {
+      color: '#c1ff6c'
+    },
+    {
+      color: '#99adff'
+    },
+    {
+      color: '#92836a'
     }
+  ]
 
-    getRGBAColor(hex: string, opacity: string): string {
-      let rgb = this.hexToRgb(hex)
-      return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})`
-    }
+  logos: string[] = [
+    require('../../assets/logos/office-notarial-logo.jpg'),
+    require('../../assets/logos/webelier-logo.jpg'),
+    require('../../assets/logos/freed-home-camper-logo.jpg'),
+    require('../../assets/logos/scc-logo.jpg')
+  ]
 
-    frames: Frame[] = [
-      {
-        img: require('../../assets/portfolio/frame1.jpg'),
-        color: '#0031FF',
-        title: 'OFFICE NOTARIAL LAVAL<br/>& LAVAL-CASSADOUR',
-        text: 'Création logo & univers<br/>graphique',
-        date: 'décembre 2017'
-      },
-      {
-        img: require('../../assets/portfolio/frame2.jpg'),
-        color: '#0031FF',
-      },
-      {
-        img: require('../../assets/portfolio/frame3.jpg'),
-        color: '#0031FF',
-      },
-      {
-        img: require('../../assets/portfolio/frame4.jpg'),
-        color: '#0031FF',
-      },
-      {
-        img: require('../../assets/portfolio/frame5.jpg'),
-        color: '#0031FF',
-      },
-      {
-        color: '#000000'
-      },
-      {
-        color: '#ff3399'
-      },
-      {
-        color: '#6683ff'
-      },
-      {
-        color: '#ffeb02'
-      },
-      {
-        color: '#c1ff6c'
-      },
-      {
-        color: '#99adff'
-      },
-      {
-        color: '#92836a'
-      }
-    ]
-
-    logos: string[] = [
-      require('../../assets/logos/office-notarial-logo.jpg'),
-      require('../../assets/logos/freed-home-camper-logo.jpg'),
-      require('../../assets/logos/webelier-logo.jpg'),
-      require('../../assets/logos/scc-logo.jpg')
-    ]
-
-    getStyle(frame: Frame): string {
-      let style = `background-color: ${frame.color};`
-
-      if (frame.img) {
-        style += `background-image: url(${frame.img});`
-      }
-      return style
-    }
+  getRGBAColor (hex: string, opacity: string): string {
+    let rgb = this.hexToRgb(hex)
+    return rgb ? `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})` : ''
   }
+
+  getStyle (frame: Frame): string {
+    let style = `background-color: ${frame.color};`
+
+    if (frame.img) {
+      style += `background-image: url(${frame.img});`
+    }
+    return style
+  }
+
+  private hexToRgb (hex: string) {
+    let result: any = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null
+  }
+}
 </script>
 
 <style scoped>
   .portfolio {
-    padding: 90px 0;
+    padding-top: 90px;
   }
 
   .portfolio-frame {
@@ -169,5 +179,10 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .quatre-raisons {
+    height: 54vw;
+    max-height: 100vh;
   }
 </style>

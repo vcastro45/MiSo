@@ -66,7 +66,7 @@
 		</svg>
 
     <v-layout wrap justify-center>
-      <v-flex xs12 sm11 class="py-4">
+      <v-flex xs12 sm11 :class="{ 'py-4': $vuetify.breakpoint.mdAndUp, 'py-5': $vuetify.breakpoint.smAndDown }">
         <v-layout wrap justify-center>
           <v-flex shrink text-xs-center>
             Contact : Mickaël Sossi // <a href="tel:0666039963" style="color: white;">(+33) 6.66.03.99.63</a> // <a href="mailto:hello@mi-so.fr" style="color: white;">hello@mi-so.fr</a> // Paris // 2018 - All Rights Reserved

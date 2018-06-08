@@ -170,8 +170,8 @@ export default class Eye extends Vue {
       let x: number = (e.x - window.innerWidth / 2) / 10
       let y: number = (e.y - (window.innerHeight + 60) / 2) / 10
 
-			let xMax = 25
-			let yMax = 30
+      let xMax = 25
+      let yMax = 30
       x = x > xMax ? xMax : x
       x = x < -xMax ? -xMax : x
       y = y > yMax ? yMax : y

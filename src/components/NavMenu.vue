@@ -15,7 +15,7 @@
         </v-layout>
         <router-link to="contact">
           <div class="work-together primary--text hidden-sm-and-down">
-            Travaillons ensemble
+            Offrez-vous un oeil expert !
           </div>
         </router-link>
       </v-flex>
