@@ -2,7 +2,7 @@
   <v-layout wrap class="contact primary white--text pa-5" id="contact">
     <v-flex xs12 md6>
       <v-layout column class="left-part">
-        <v-flex shrink class="tagline" :style="{ 'margin-left: 100px;': $vuetify.breakpoint.mdAndUp }">
+        <v-flex shrink class="tagline" :style="$vuetify.breakpoint.mdAndUp ? 'margin-left: 100px;' : ''">
           Vous avez été séduit par les réalisations et aimeriez me solliciter sur la création d'un projet ?
         </v-flex>
         <v-flex shrink class="secondary--text separator">

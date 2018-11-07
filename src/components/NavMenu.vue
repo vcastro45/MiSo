@@ -2,7 +2,7 @@
   <div class="nav-menu white" :class="{ 'fixed': fixed }">
     <v-layout wrap justify-space-between
               style="height: 60px;"
-              :style="{ 'padding: 0 70px;': $vuetify.breakpoint.mdAndUp }"
+              :style="$vuetify.breakpoint.mdAndUp ? 'padding: 0 70px;' : ''"
     >
       <v-flex shrink v-if="$vuetify.breakpoint.mdAndUp">
         <img class="logo" :src="require('../assets/logo.svg')" alt="logo" height="20">
