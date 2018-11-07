@@ -1,23 +1,26 @@
 <template>
   <div class="nav-menu white" :class="{ 'fixed': fixed }">
-    <v-layout wrap style="height: 60px">
-      <v-spacer/>
-      <v-flex xs12 md10 style="position:relative;">
-        <img class="logo hidden-sm-and-down" :src="require('../assets/logo.svg')" alt="logo" height="20">
-        <v-layout justify-center style="height: 100%;">
+    <v-layout wrap justify-space-between
+              style="height: 60px;"
+              :style="{ 'padding: 0 70px;': $vuetify.breakpoint.mdAndUp }"
+    >
+      <v-flex shrink v-if="$vuetify.breakpoint.mdAndUp">
+        <img class="logo" :src="require('../assets/logo.svg')" alt="logo" height="20">
+      </v-flex>
+      <v-flex>
+        <v-layout justify-center style="height: 100%;" class="menu-buttons">
           <v-toolbar-items>
             <v-btn flat :ripple="false" href="#raisons">services</v-btn>
             <v-btn flat :ripple="false" href="#portfolio">portfolio</v-btn>
             <v-btn flat :ripple="false" href="#contact">contact</v-btn>
           </v-toolbar-items>
         </v-layout>
-        <div>
-          <div class="work-together secondary--text hidden-sm-and-down">
-            Faites confiance a un oeil d'expert !
-          </div>
+      </v-flex>
+      <v-flex shrink>
+        <div class="work-together secondary--text" v-if="$vuetify.breakpoint.mdAndUp">
+          Faites confiance a un oeil d'expert !
         </div>
       </v-flex>
-      <v-spacer/>
     </v-layout>
   </div>
 </template>
@@ -54,15 +57,20 @@ export default class NavMenu extends Vue {
     background-color: initial !important;
   }
 
-  .logo {
+  .menu-buttons {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .logo {
+    position: relative;
     top: 50%;
     transform: translateY(-50%);
   }
 
   .work-together {
-    position: absolute;
-    right: 0;
+    position: relative;
     top: 50%;
     transform: translateY(-50%);
     font-family: NouvelleVague, Arial, Helvetica, sans-serif;

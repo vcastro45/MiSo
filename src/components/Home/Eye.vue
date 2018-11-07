@@ -84,6 +84,10 @@ export default class Eye extends Vue {
     transform: translate3d(-50%, -50%, 0);
   }
 
+  .eye {
+    overflow-x: hidden;
+  }
+
 	.st0{fill:#FFFFFF;}
 	.st1{fill:#F7B78D;}
 	.st2{fill:#203451;}

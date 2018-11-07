@@ -2,7 +2,7 @@
   <v-layout wrap class="contact primary white--text pa-5" id="contact">
     <v-flex xs12 md6>
       <v-layout column class="left-part">
-        <v-flex shrink class="tagline">
+        <v-flex shrink class="tagline" :style="{ 'margin-left: 100px;': $vuetify.breakpoint.mdAndUp }">
           Vous avez été séduit par les réalisations et aimeriez me solliciter sur la création d'un projet ?
         </v-flex>
         <v-flex shrink class="secondary--text separator">
@@ -43,7 +43,6 @@ export default class Contact extends Vue {
   .tagline {
     font-family: NouvelleVague;
     font-size: 2.3em;
-    margin-left: 100px;
   }
 
   .slash::before {
