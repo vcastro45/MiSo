@@ -43,7 +43,7 @@
       <v-flex xs2 md1>
         <v-layout :column="$vuetify.breakpoint.mdAndUp" :justify-space-around="$vuetify.breakpoint.smAndDown" wrap :justify-center="$vuetify.breakpoint.mdAndUp" :fill-height="$vuetify.breakpoint.mdAndUp" class="social" :class="{ 'vertical-center': $vuetify.breakpoint.smAndDown }">
           <a href="https://www.behance.net/hello1818" class="flex shrink py-3">
-            <v-icon color="primary">mdi-behance</v-icon>
+            <v-icon color="primary" class="behance">mdi-behance</v-icon>
           </a>
           <a href="https://www.facebook.com/mi.so.graphiste/" class="flex shrink py-3">
             <v-icon color="primary">mdi-facebook</v-icon>
@@ -125,7 +125,11 @@ export default class Introduction extends Vue {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2em;
+    font-size: 1.8rem;
+  }
+
+  .social i.behance {
+    font-size: 2rem !important;
   }
 
   .social > div {
