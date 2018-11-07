@@ -6,7 +6,7 @@
           <v-img :src="getBgImg(item)" height="100%" width="100%"/>
           <v-layout column class="descriptor pa-5">
             <v-flex shrink>
-              <h2 class="title primary--text">{{ item.title }}</h2>
+              <h2 class="portfolio-title primary--text">{{ item.title }}</h2>
             </v-flex>
             <v-flex shrink>
               <h3 class="desc black--text">{{ item.description }}</h3>
@@ -64,7 +64,7 @@ export default class Portfolio extends Vue {
     transform: translateY(0);
   }
 
-  .title {
+  .portfolio-title {
     text-transform: uppercase;
     font-size: 2.3em !important;
     font-weight: bold;
@@ -73,6 +73,7 @@ export default class Portfolio extends Vue {
   .desc {
     font-size: 2.1em !important;
     font-weight: normal;
+    line-height: 1.7em;
   }
 
   hr {

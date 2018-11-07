@@ -56,11 +56,12 @@ export default class extends Vue {
   .line {
     display: block;
     font-family: inherit;
+    font-weight: normal;
   }
 
   p {
     font-size: 1em;
-    font-family: NouvelleVague;
     letter-spacing: 1px;
+    font-weight: normal;
   }
 </style>

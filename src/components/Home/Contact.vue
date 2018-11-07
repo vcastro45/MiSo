@@ -41,7 +41,7 @@ export default class Contact extends Vue {
   }
 
   .tagline {
-    font-family: NouvelleVague;
+    font-family: PistolliRoman;
     font-size: 2.3em;
   }
 
