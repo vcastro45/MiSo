@@ -1,9 +1,10 @@
 <template>
-  <router-link class="arrow" :class="direction" :to="to">
+  <div class="arrow" :class="direction">
+    <div class="text primary--text">{{ text }}</div>
     <v-layout column style="height: 100%;" :justify-end="direction === 'down'">
-      <v-icon large class="white--text" :class="direction">mdi-chevron-{{ direction }}</v-icon>
+      <v-icon large :class="direction" color="primary">mdi-arrow-{{ direction }}</v-icon>
     </v-layout>
-  </router-link>
+  </div>
 </template>
 
 <script lang="ts">
@@ -16,8 +17,8 @@ export default class Arrow extends Vue {
   @Prop({ type: String, default: 'down' })
   direction: Direction
 
-  @Prop({ type: [ Object, String ], required: true })
-  to: any
+  @Prop({ type: String, default: 'scroll' })
+  text: string
 }
 </script>
 
@@ -25,31 +26,19 @@ export default class Arrow extends Vue {
   .arrow {
     display: inline-block;
     text-decoration: none;
-    background-color: #0031FF;
     height: 60px;
     width: 36px;
     position: relative;
   }
 
-  .arrow .icon {
+  .arrow .v-icon {
     position: relative;
   }
 
-  .arrow.down:hover .icon {
-    animation: arrowDown .5s ease-in 0s infinite;
-  }
-
-  .arrow.up:hover .icon {
-    animation: arrowTop .5s ease-in 0s infinite;
-  }
-
-  @keyframes arrowDown {
-    from { top: 0; }
-    to { top: 10px; }
-  }
-
-  @keyframes arrowTop {
-    from { top: 10px; }
-    to { top: 0; }
+  .text {
+    position: absolute;
+    top: -10px;
+    transform-origin: center;
+    transform: rotateZ(-90deg);
   }
 </style>

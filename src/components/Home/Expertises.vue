@@ -2,22 +2,16 @@
   <div class="expertises" id="expertises">
     <v-layout wrap>
       <v-flex xs12>
-        <v-layout column>
-          <v-flex><h2 class="home-title text-xs-center">EXPERTISES</h2></v-flex>
-          <v-flex><h5 class="bluedots text-xs-center pt-2 pb-4 primary--text">● ● ●</h5></v-flex>
-        </v-layout>
-      </v-flex>
-      <v-flex xs12>
         <v-layout wrap justify-center v-if="$vuetify.breakpoint.mdAndUp">
-          <v-flex class="slider-navigator primary">
+          <v-flex class="slider-navigator">
             <v-layout column fill-height justify-center @click="goToPreviousPage">
-              <v-icon large class="white--text">mdi-chevron-left</v-icon>
+              <v-icon large color="primary">mdi-arrow-left</v-icon>
             </v-layout>
           </v-flex>
           <v-flex xs11 style="overflow: hidden">
-            <v-layout class="carousel-slider" ref="carouselSlider" wrap :style="`width: ${expertises.length / 6 * 100}%;${translationStyle};`">
+            <v-layout class="carousel-slider" ref="carouselSlider" wrap
+                      :style="`width: ${expertises.length / 6 * 100}%;${translationStyle};`">
               <v-flex xs2 class="py-5"
-                      :style="`background-color: ${expertise.color};`"
                       v-for="(expertise, index) in expertises" :key="index">
                 <v-layout>
                   <v-flex shrink class="px-4">
@@ -33,9 +27,9 @@
               </v-flex>
             </v-layout>
           </v-flex>
-          <v-flex class="slider-navigator primary">
+          <v-flex class="slider-navigator">
             <v-layout column fill-height justify-center @click="goToNextPage">
-              <v-icon large class="white--text">mdi-chevron-right</v-icon>
+              <v-icon large color="primary">mdi-arrow-right</v-icon>
             </v-layout>
           </v-flex>
         </v-layout>
@@ -65,7 +59,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 
-type Expertise = { title: string, text: string, color: string }
+type Expertise = { title: string, text: string }
 
 @Component
 export default class Expertises extends Vue {
@@ -85,64 +79,52 @@ export default class Expertises extends Vue {
 
   expertises: Expertise[] = [
     {
-      title: 'Mise en pages',
-      text: 'Disposition graphique du contenu de la maquette, hiérarchie des informations, choix typographiques et création de gabarit.',
-      color: '#e6eaff'
+      title: 'Visuel Publicitaire',
+      text: 'Création d’un visuel publicitaire percutant destiné à porter une image forte de votre Société auprès de ses clients et partenaires.'
+    },
+    {
+      title: 'Une prestation clé en main',
+      text: 'Suivi de votre projet depuis l’idée jusqu’à la préparation des fichiers destinés à l’impression (mise en page, traits de coupe et fonds perdus, taille et résolution des fichiers)'
+    },
+    {
+      title: 'Design d\'interface',
+      text: 'Conception graphique et intuitive permettant l’adaptation de votre message aux divers supports (mailings, applications pour smartphones ou tablette)'
+    },
+    {
+      title: 'Enseigne & signalétique',
+      text: 'Impression de votre visuel publicitaire sur divers supports (enseignes, PLV, totem, kakémono, pancarte, roll-up)'
+    },
+    {
+      title: 'Coup de jeune numérique',
+      text: 'Adaptation de votre site internet à votre nouvelle identité visuelle, Optimisation de votre image sur les différents supports pour un visuel publicitaire cohérent et innovant.'
+    },
+    {
+      title: 'Création graphique digitale',
+      text: 'Création d’un message graphique destiné à promouvoir vos offres de services via votre site internet par la réalisation d’un habillage d’interface web.'
+    },
+    {
+      title: 'Mise en page',
+      text: 'Disposition graphique du contenu de manière hiérarchique et harmonieuse afin de faciliter la lecture du support par le choix judicieux de la typographie et des photographies éventuelles.'
     },
     {
       title: 'Retouche d\'images',
-      text: 'Retouche et correction d’images, chromie, ajustement des courbes et détour age de haute qualité avec masque de fusion.',
-      color: '#f2f4ff'
+      text: 'Retouche de l’image afin d’améliorer son rendu par la modification des couleurs, des courbes, manipulation des vecteurs, détourage avec masque de fusion'
     },
     {
       title: 'Identité visuelle',
-      text: 'Conception d’identité visuelle, charte graphique, logo, en prenant en compte le message que doit véhiculer la marque.',
-      color: '#e6eaff'
+      text: 'Création de votre logo, votre identité visuelle ou votre charte graphique en adéquation avec votre message publicitaire et/ou votre image de marque'
     },
     {
       title: 'Supports de communication',
-      text: 'Création de l’ensemble des supports de communication (flyer, plaquette, dépliant, brochure, carte de visite, affiche...)',
-      color: '#dae1ff'
+      text: 'Déclinaison de votre image sur l’ensemble de vos supports de publicité papeterie (carte de visite, carte de correspondance) ou print (flyer, magazine, affiche, brochure)'
     },
     {
       title: 'Design éditorial',
-      text: 'Mise en place de charte graphique, création de maquette pour tous types de supports imprimés (livres, magazine, catalogue...)',
-      color: '#e6eaff'
+      text: 'Élaboration graphique créative et ergonomique permettant une lecture agréable et fonctionnelle de votre magazine, votre livre ou votre journal.'
     },
     {
-      title: 'Reproduction de logo',
-      text: 'Reproduction fidèle de logo existant, pour qu’il puisse être exploiter pour tous types de formats sans perte de qualité',
-      color: '#dae1ff'
-    },
-    {
-      title: 'Mise en pages2',
-      text: 'Disposition graphique du contenu de la maquette, hiérarchie des informations, choix typographiques et création de gabarit.',
-      color: '#e6eaff'
-    },
-    {
-      title: 'Retouche d\'images2',
-      text: 'Retouche et correction d’images, chromie, ajustement des courbes et détour age de haute qualité avec masque de fusion.',
-      color: '#f2f4ff'
-    },
-    {
-      title: 'Identité visuelle2',
-      text: 'Conception d’identité visuelle, charte graphique, logo, en prenant en compte le message que doit véhiculer la marque.',
-      color: '#e6eaff'
-    },
-    {
-      title: 'Supports de communication2',
-      text: 'Création de l’ensemble des supports de communication (flyer, plaquette, dépliant, brochure, carte de visite, affiche...)',
-      color: '#dae1ff'
-    },
-    {
-      title: 'Design éditorial2',
-      text: 'Mise en place de charte graphique, création de maquette pour tous types de supports imprimés (livres, magazine, catalogue...)',
-      color: '#e6eaff'
-    },
-    {
-      title: 'Reproduction de logo2',
-      text: 'Reproduction fidèle de logo existant, pour qu’il puisse être exploiter pour tous types de formats sans perte de qualité',
-      color: '#dae1ff'
+      title: 'Réplique de logo',
+      text: 'Réplique d’un logo en haute qualité pour permettre son exploitation sur de nouveaux supports sans perte de qualité et de lisibilité.'
     }
   ]
 
@@ -171,6 +153,7 @@ export default class Expertises extends Vue {
 <style scoped>
   .expertises {
     padding-top: 90px;
+    padding-bottom: 90px;
   }
 
   .expertise-text {
@@ -203,7 +186,7 @@ export default class Expertises extends Vue {
     width: 30px;
     height: 2px;
     margin: 0 10px;
-    background-color: #0031FF;
+    background-color: #edb48e !important;
     display: inline-block;
   }
 

@@ -3,21 +3,19 @@
     <v-layout wrap style="height: 60px">
       <v-spacer/>
       <v-flex xs12 md10 style="position:relative;">
-        <router-link :to="{ name: 'Home' }"><img class="logo hidden-sm-and-down" :src="require('../assets/logo.png')"
-                                                 alt="logo" height="35"></router-link>
+        <img class="logo hidden-sm-and-down" :src="require('../assets/logo.svg')" alt="logo" height="20">
         <v-layout justify-center style="height: 100%;">
           <v-toolbar-items>
-            <router-link is="v-btn" to="a-propos" active-class="active" flat :ripple="false">à propos</router-link>
-            <router-link is="v-btn" to="expertises" active-class="active" flat :ripple="false">expertises</router-link>
-            <router-link is="v-btn" to="portfolio" active-class="active" flat :ripple="false">portfolio</router-link>
-            <router-link is="v-btn" to="contact" active-class="active" flat :ripple="false">contact</router-link>
+            <v-btn flat :ripple="false" href="#raisons">services</v-btn>
+            <v-btn flat :ripple="false" href="#portfolio">portfolio</v-btn>
+            <v-btn flat :ripple="false" href="#contact">contact</v-btn>
           </v-toolbar-items>
         </v-layout>
-        <router-link to="contact">
-          <div class="work-together primary--text hidden-sm-and-down">
-            Offrez-vous un oeil expert !
+        <div>
+          <div class="work-together secondary--text hidden-sm-and-down">
+            Faites confiance a un oeil d'expert !
           </div>
-        </router-link>
+        </div>
       </v-flex>
       <v-spacer/>
     </v-layout>
@@ -46,31 +44,10 @@ export default class NavMenu extends Vue {
     width: 100%;
   }
 
-  .toolbar__items .btn {
-    text-transform: initial !important;
-    font-size: 1.2em;
-    font-weight: bold;
+  .nav-menu /deep/ .v-btn {
+    font-size: 1em;
     font-family: 'AcherusGrotesque', Arial, Helvetica, sans-serif;
-  }
-
-  .toolbar__items .btn::after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 9px;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 0;
-    width: 0;
-    border-radius: 9999px;
-    background-color: #0031FF;
-    transition: all .15s ease-in-out;
-  }
-
-  .toolbar__items .btn.active::after {
-    height: 8px;
-    width: 8px;
-    bottom: 5px;
+    text-transform: initial !important;
   }
 
   .nav-menu /deep/ .btn__content::before {
@@ -88,7 +65,7 @@ export default class NavMenu extends Vue {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    font-family: 'AcherusGrotesque', Arial, Helvetica, sans-serif;
+    font-family: NouvelleVague, Arial, Helvetica, sans-serif;
     font-weight: bold;
   }
 
@@ -97,7 +74,7 @@ export default class NavMenu extends Vue {
     height: 2px;
     width: 30px;
     margin-right: 5px;
-    background-color: #0031FF;
+    background-color: #edb48e !important;
     display: inline-block;
     position: relative;
     transform: translateY(-50%);

@@ -20,3 +20,18 @@
     src: url('./Montserrat/Montserrat-SemiBold.ttf');
     font-weight: 500;
 }
+
+@font-face {
+    font-family: Graceland;
+    src: url('./Graceland.ttf');
+}
+
+@font-face {
+    font-family: NouvelleVague;
+    src: url('./nouvelle_vague_final.ttf');
+}
+
+@font-face {
+    font-family: PistolliRoman;
+    src: url('./Pistilli-Roman.otf');
+}

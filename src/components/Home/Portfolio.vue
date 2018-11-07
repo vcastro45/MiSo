@@ -1,188 +1,88 @@
 <template>
-  <div class="portfolio" id="portfolio">
-    <v-layout wrap>
-      <v-flex xs12>
-        <v-layout column>
-          <v-flex><h2 class="home-title text-xs-center">PORTFOLIO</h2></v-flex>
-          <v-flex><h5 class="bluedots text-xs-center pt-2 pb-4 primary--text">● ● ●</h5></v-flex>
-        </v-layout>
-      </v-flex>
-
-      <v-flex xs12>
-        <v-layout wrap>
-          <router-link to="#" class="flex xs12 md4" v-for="(frame, index) in frames" :key="index" v-if="$vuetify.breakpoint.mdAndUp || frame.title || frame.text || frame.date || frame.img">
-            <div
-              class="portfolio-frame"
-              :class="{ 'fullheight': $vuetify.breakpoint.smAndDown }"
-              :style="getStyle(frame)"
-            >
-              <v-layout column class="portfolio-frame__desc white--text pa-5" :style="`background-color: ${getRGBAColor(frame.color, '.8')};`" v-if="frame.title || frame.text || frame.date">
-                <v-flex shrink class="frame-title" v-html="frame.title"/>
-                <v-flex shrink class="frame-text" v-html="frame.text"/>
-                <hr class="my-2" v-if="frame.title || frame.text"/>
-                <v-spacer/>
-                <v-flex shrink style="opacity: .6;">{{ frame.date }}</v-flex>
-              </v-layout>
-            </div>
-          </router-link>
-        </v-layout>
-      </v-flex>
-
-      <v-flex xs12>
-        <v-layout wrap>
-          <v-flex xs12>
-            <img :src="require('../../assets/4raisons.jpg')" alt="4 bonnes raisons de faire appel à un freelance" class="quatre-raisons">
-          </v-flex>
-        </v-layout>
-      </v-flex>
-
-      <v-flex xs12>
-        <v-layout wrap justify-center class="py-5">
-          <v-flex :xs12="$vuetify.breakpoint.smAndDown" v-for="(logo, index) in logos" :key="index" class="logo" :class="{ 'py-3': $vuetify.breakpoint.smAndDown }">
-            <img :src="logo" height="75"/>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
-  </div>
+  <v-layout row wrap class="portfolio" id="portfolio">
+    <v-flex xs12 sm6 md4 v-for="(item, index) of items" :key="index">
+      <a :href="item.link">
+        <v-responsive :aspect-ratio="1/1" width="100%" class="portfolio-item">
+          <v-img :src="getBgImg(item)" height="100%" width="100%"/>
+          <v-layout column class="descriptor pa-5">
+            <v-flex shrink>
+              <h2 class="title primary--text">{{ item.title }}</h2>
+            </v-flex>
+            <v-flex shrink>
+              <h3 class="desc black--text">{{ item.description }}</h3>
+            </v-flex>
+            <v-flex shrink>
+              <hr class="secondary my-2"/>
+            </v-flex>
+            <v-spacer/>
+            <v-flex shrink>
+              <h6 class="date primary--text">{{ item.date }}</h6>
+            </v-flex>
+          </v-layout>
+        </v-responsive>
+      </a>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
-type Frame = { img?: string, color: string, title?: string, text?: string, date?: string }
-
+type PortfolioItem = { title?: string, description?: string, link?: string, img?: string, date?: string }
 @Component
 export default class Portfolio extends Vue {
-  frames: Frame[] = [
-    {
-      img: require('../../assets/portfolio/frame1.jpg'),
-      color: '#0031FF',
-      title: 'OFFICE NOTARIAL LAVAL<br/>& LAVAL-CASSADOUR',
-      text: 'Création logo & univers<br/>graphique',
-      date: 'décembre 2017'
-    },
-    {
-      img: require('../../assets/portfolio/frame2.jpg'),
-      color: '#0031FF'
-    },
-    {
-      img: require('../../assets/portfolio/frame3.jpg'),
-      color: '#0031FF'
-    },
-    {
-      img: require('../../assets/portfolio/frame4.jpg'),
-      color: '#0031FF'
-    },
-    {
-      img: require('../../assets/portfolio/frame5.jpg'),
-      color: '#0031FF'
-    },
-    {
-      color: '#000000'
-    },
-    {
-      color: '#ff3399'
-    },
-    {
-      color: '#6683ff'
-    },
-    {
-      color: '#ffeb02'
-    },
-    {
-      color: '#c1ff6c'
-    },
-    {
-      color: '#99adff'
-    },
-    {
-      color: '#92836a'
+  @Prop({type: Array, default: () => []})
+  items: PortfolioItem[]
+
+  getBgImg (item: PortfolioItem): string {
+    if (item && item.img) {
+      return require(`../../assets/portfolio/${item.img}`)
     }
-  ]
-
-  logos: string[] = [
-    require('../../assets/logos/office-notarial-logo.jpg'),
-    require('../../assets/logos/webelier-logo.jpg'),
-    require('../../assets/logos/freed-home-camper-logo.jpg'),
-    require('../../assets/logos/scc-logo.jpg')
-  ]
-
-  getRGBAColor (hex: string, opacity: string): string {
-    let rgb = this.hexToRgb(hex)
-    return rgb ? `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})` : ''
-  }
-
-  getStyle (frame: Frame): string {
-    let style = `background-color: ${frame.color};`
-
-    if (frame.img) {
-      style += `background-image: url(${frame.img});`
-    }
-    return style
-  }
-
-  private hexToRgb (hex: string) {
-    let result: any = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
-    return result ? {
-      r: parseInt(result[1], 16),
-      g: parseInt(result[2], 16),
-      b: parseInt(result[3], 16)
-    } : null
+    return ''
   }
 }
 </script>
 
 <style scoped>
-  .portfolio {
-    padding-top: 90px;
+  .portfolio-item {
+    position: relative;
+    overflow: hidden;
   }
 
-  .portfolio-frame {
-    height: 33.33333333333333vw;
-    background-size: cover;
-    background-color: #0031FF;
-  }
-
-  .portfolio-frame.fullheight {
-    height: 100vw !important;
-  }
-
-  .portfolio-frame__desc {
+  .descriptor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateY(100%);
     height: 100%;
     width: 100%;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    font-family: 'AcherusGrotesque', Arial, Helvetica, sans-serif;
+    background-color: rgba(255, 255, 255, .9);
+    transition: transform .2s ease-in-out;
   }
 
-  .frame-title {
-    font-size: 1.6em;
+  .portfolio-item:hover .descriptor {
+    transform: translateY(0);
   }
 
-  .frame-text {
-    font-size: 1.4em;
+  .title {
+    text-transform: uppercase;
+    font-size: 2.3em !important;
+    font-weight: bold;
   }
 
-  .portfolio-frame__desc hr {
+  .desc {
+    font-size: 2.1em !important;
+    font-weight: normal;
+  }
+
+  hr {
+    width: 30px;
     border: 0;
     height: 2px;
-    width: 40px;
-    background-color: white;
   }
 
-  .portfolio-frame__desc:hover {
-    opacity: 1;
-  }
-
-  .logo img {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .quatre-raisons {
-    height: 54vw;
-    max-height: 100vh;
+  .date {
+    font-size: 1.2em !important;
+    font-weight: 200;
   }
 </style>
