@@ -8,7 +8,7 @@
       </v-layout>
     </v-flex>
     <v-flex>
-      <v-carousel hide-delimiters next-icon="mdi-arrow-right" prev-icon="mdi-arrow-left" style="height: 300px;" class="elevation-0">
+      <v-carousel :interval="999999999" hide-delimiters next-icon="mdi-arrow-right" prev-icon="mdi-arrow-left" style="height: 300px;" class="elevation-0">
         <v-carousel-item v-for="(quote, index) of quotes" :key="index">
           <v-layout column justify-center fill-height class="px-6">
             <v-flex shrink>

@@ -125,11 +125,11 @@ export default class Introduction extends Vue {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1.8rem;
+    font-size: 1.3rem;
   }
 
   .social i.behance {
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
   }
 
   .social > div {
