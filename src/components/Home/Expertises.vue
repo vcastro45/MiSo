@@ -13,8 +13,8 @@
                       :style="`width: ${expertises.length / 6 * 100}%;${translationStyle};`">
               <v-flex xs2 class="py-5"
                       v-for="(expertise, index) in expertises" :key="index">
-                <v-layout>
-                  <v-flex shrink class="px-4">
+                <v-layout class="fill-height">
+                  <v-flex shrink class="px-4 fill-height">
                     <img :src="require(`../../assets/pictos/${index + 1}.png`)"/>
                   </v-flex>
                   <v-flex class="expertise-text">
