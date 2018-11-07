@@ -1,7 +1,7 @@
 <template>
   <div class="introduction" ref="introduction" id="introduction">
     <v-layout wrap column class="whitebox primary--text" v-if="$vuetify.breakpoint.mdAndUp">
-      <v-flex shrink><h2>Hi There !</h2></v-flex>
+      <v-flex shrink><h2>Hi There</h2></v-flex>
       <v-flex shrink class="py-2"><hr class="secondary"/></v-flex>
       <v-flex shrink>
         <p>Diplômé de la Fonderie de l’Image, je suis<br/>
@@ -27,7 +27,7 @@
           <span class="line">Pour une image</span>
           <span class="line">forte,</span>
           <span class="line">qui perdure</span>
-          <span class="line">dans le temps !</span>
+          <span class="line">dans le temps</span>
         </h3>
       </v-flex>
     </v-layout>

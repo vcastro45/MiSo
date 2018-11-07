@@ -108,11 +108,11 @@ export default class Expertises extends Vue {
     },
     {
       title: 'Retouche d\'images',
-      text: 'Retouche de l’image afin d’améliorer son rendu par la modification des couleurs, des courbes, manipulation des vecteurs, détourage avec masque de fusion'
+      text: 'Retouche de l’image afin d’améliorer son rendu par la modification des couleurs, des courbes, manipulation des vecteurs, détourage avec masque de fusion.'
     },
     {
       title: 'Identité visuelle',
-      text: 'Création de votre logo, votre identité visuelle ou votre charte graphique en adéquation avec votre message publicitaire et/ou votre image de marque'
+      text: 'Création de votre logo, votre identité visuelle ou votre charte graphique en adéquation avec votre message publicitaire et/ou votre image de marque.'
     },
     {
       title: 'Supports de communication',

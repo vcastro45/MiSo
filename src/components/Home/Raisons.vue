@@ -41,19 +41,19 @@ export default class Raisons extends Vue {
   reasons: { img: string, text: string }[] = [
     {
       img: require('../../assets/reasons-logos/clock.png'),
-      text: 'Je suis votre interlocuteur unique et privilégié, je m’occupe de tout !'
+      text: 'Je suis votre interlocuteur unique et privilégié, je m’occupe de tout'
     },
     {
       img: require('../../assets/reasons-logos/message.png'),
-      text: 'Je suis à votre écoute pour réaliser ce que vous souhaitez, vous êtes ma plus belle carte de visite !'
+      text: 'Je suis à votre écoute pour réaliser ce que vous souhaitez, vous êtes ma plus belle carte de visite'
     },
     {
       img: require('../../assets/reasons-logos/file_check.png'),
-      text: 'Je suis une entreprise à taille humaine, chaque client est précieux !'
+      text: 'Je suis une entreprise à taille humaine, chaque client est précieux'
     },
     {
       img: require('../../assets/reasons-logos/money.png'),
-      text: 'Je suis aussi compétent qu’une agence de communication, l’arrogance et les tarifs en moins ;) '
+      text: 'Je suis aussi compétent qu’une agence de communication, les tarifs en moins'
     }
   ]
 
