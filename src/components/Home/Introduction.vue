@@ -95,7 +95,7 @@ export default class Introduction extends Vue {
     height: 100%;
     padding: 70px;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, .8);
+    background-color: rgba(255, 255, 255, .7);
     z-index: 1;
   }
 
