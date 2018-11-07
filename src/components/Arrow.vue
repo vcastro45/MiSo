@@ -38,7 +38,9 @@ export default class Arrow extends Vue {
   .text {
     position: absolute;
     top: -10px;
+    left: 2px;
     transform-origin: center;
     transform: rotateZ(-90deg);
+    font-size: .9em;
   }
 </style>

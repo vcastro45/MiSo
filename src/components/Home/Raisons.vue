@@ -12,6 +12,7 @@
                 <div class="plus secondary--text" ref="plus">+1</div>
                 <img :src="hoverMe" alt="hover me" class="hover-me"/>
               </template>
+              <div class="separator primary"></div>
             </v-flex>
           </v-layout>
         </v-flex>
@@ -134,5 +135,14 @@ export default class Raisons extends Vue {
     left: 0;
     width: 100%;
     transform: translateY(-50%);
+  }
+
+  .separator {
+    height: 3px;
+    width: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 </style>
