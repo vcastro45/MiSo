@@ -5,15 +5,13 @@
     <expertises/>
     <tagline>
       <h2>
-        <span class="line">Nous ne pouvons se satisfaire de la médiocrité...</span>
-        <span class="line">Pouvez-vous réussir sir vous avez seulement l'équipement de base ?</span>
-        <span class="line">Pas question ! C'est seulement quand vous savez qui vous êtes que vous</span>
-        <span class="line">pouvez devenir ce que vous voulez.</span>
+        <span class="line">Réussir nécessite de viser plus haut…</span>
+        <span class="line">il ne faut pas se satisfaire du nécessaire, il faut voir plus grand !</span>
+        <span class="line">Avoir le minimum va plus vite, faire le maximum permet d’aller plus loin.</span>
       </h2>
-      <p slot="hint" class="secondary--text">
-        <span class="line">transformons ensemble l'ambition brûlante en stratégie de marque et dotons d'une sensation numérique.</span>
-        <span class="line">Tuer la moyenne - la médiocrité est beaucoup trop ennuyeuse.</span>
-      </p>
+      <h2 slot="hint" class="secondary--text">
+        <span class="line">Travaillons ensemble pour que votre communication soit à la hauteur de votre ambition car la médiocrité ne peut pas être une option !</span>
+      </h2>
     </tagline>
     <portfolio :items="portfolio"/>
     <testimonials/>

@@ -1,7 +1,7 @@
 <template>
   <v-layout row wrap class="portfolio" id="portfolio">
     <v-flex xs12 sm6 md4 v-for="(item, index) of items" :key="index">
-      <a :href="item.link">
+      <a :href="item.link" target="_blank">
         <v-responsive :aspect-ratio="1/1" width="100%" class="portfolio-item">
           <v-img :src="getBgImg(item)" height="100%" width="100%"/>
           <v-layout column class="descriptor pa-5">

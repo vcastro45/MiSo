@@ -22,7 +22,7 @@
           photographes…) nécessaires à la réalisation de<br/>
           vos outils.</p>
       </v-flex>
-      <v-flex shrink>
+      <v-flex shrink class="strongimg">
         <h3 class="secondary--text">
           <span class="line">Pour une image</span>
           <span class="line">forte,</span>
@@ -37,21 +37,21 @@
         <div class="subframe">
           <img :src="require('../../assets/bg-eye.svg')"class="bg-eye"/>
           <eye class="eye" :reference="introduction"/>
-          <arrow class="go-next"/>
+          <arrow class="go-next pointer" @click.native="window.location.replace('#raisons')"/>
         </div>
       </v-flex>
       <v-flex xs2 md1>
         <v-layout :column="$vuetify.breakpoint.mdAndUp" :justify-space-around="$vuetify.breakpoint.smAndDown" wrap :justify-center="$vuetify.breakpoint.mdAndUp" :fill-height="$vuetify.breakpoint.mdAndUp" class="social" :class="{ 'vertical-center': $vuetify.breakpoint.smAndDown }">
-          <a href="https://www.behance.net/hello1818" class="flex shrink py-3">
+          <a href="https://www.behance.net/hello1818" target="_blank" class="flex shrink py-3">
             <v-icon color="primary" class="behance">mdi-behance</v-icon>
           </a>
-          <a href="https://www.facebook.com/mi.so.graphiste/" class="flex shrink py-3">
+          <a href="https://www.facebook.com/mi.so.graphiste/" target="_blank" class="flex shrink py-3">
             <v-icon color="primary">mdi-facebook</v-icon>
           </a>
-          <a href="https://www.linkedin.com/in/micka%C3%ABl-sossi-516560131/" class="flex shrink py-3">
+          <a href="https://www.linkedin.com/in/micka%C3%ABl-sossi-516560131/" target="_blank" class="flex shrink py-3">
             <v-icon color="primary">mdi-linkedin</v-icon>
           </a>
-          <a href="https://www.instagram.com/mi.so_graphiste/" class="flex shrink py-3">
+          <a href="https://www.instagram.com/mi.so_graphiste/" target="_blank" class="flex shrink py-3">
             <v-icon color="primary">mdi-instagram</v-icon>
           </a>
         </v-layout>
@@ -72,6 +72,7 @@ import Arrow from '../Arrow.vue'
   }
 })
 export default class Introduction extends Vue {
+  window = window
   introduction: HTMLElement | null = null
 
   mounted () {
@@ -93,7 +94,7 @@ export default class Introduction extends Vue {
     left: 0;
     width: calc(50vw - 180px);
     height: 100%;
-    padding: 70px;
+    padding: 40px 70px 0 70px;
     overflow: hidden;
     background-color: rgba(255, 255, 255, .7);
     z-index: 1;
@@ -115,10 +116,8 @@ export default class Introduction extends Vue {
   }
 
   .go-next {
-    position: absolute;
-    bottom: 10px;
     left: 50%;
-    transform: translate(-50%, -100%);
+    transform: translateY(calc(-100% - 10px));
   }
 
   .social i {
@@ -176,5 +175,15 @@ export default class Introduction extends Vue {
     font-family: inherit;
     font-size: inherit;
     line-height: 40px;
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 1180px) {
+    .strongimg {
+      display: none;
+    }
   }
 </style>

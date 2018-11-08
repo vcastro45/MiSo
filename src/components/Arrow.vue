@@ -43,4 +43,16 @@ export default class Arrow extends Vue {
     transform: rotateZ(-90deg);
     font-size: .9em;
   }
+
+  .arrow:hover {
+    animation-name: animate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes animate {
+    0%   {top: 0;}
+    50%  {top: -10px;}
+    100% {top: 0;}
+  }
 </style>

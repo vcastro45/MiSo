@@ -18,7 +18,7 @@
       </v-flex>
       <v-flex shrink>
         <div class="work-together secondary--text" v-if="$vuetify.breakpoint.mdAndUp">
-          Faites confiance a un oeil d'expert !
+          Faites confiance à un oeil d'expert !
         </div>
       </v-flex>
     </v-layout>

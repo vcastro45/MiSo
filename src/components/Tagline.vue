@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-center class="tagline primary">
-    <v-flex xs11 sm8>
+    <v-flex xs11 sm8 xl6>
       <slot></slot>
       <hr class="secondary my-3"/>
       <slot name="hint"></slot>
