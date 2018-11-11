@@ -9,7 +9,7 @@
       </v-flex>
       <v-flex>
         <v-layout justify-center style="height: 100%;" class="menu-buttons">
-          <v-toolbar-items>
+          <v-toolbar-items class="toolbar-btns">
             <v-btn flat :ripple="false" href="#raisons">services</v-btn>
             <v-btn flat :ripple="false" href="#portfolio">portfolio</v-btn>
             <v-btn flat :ripple="false" href="#contact">contact</v-btn>
@@ -87,5 +87,19 @@ export default class NavMenu extends Vue {
     position: relative;
     transform: translateY(-50%);
     top: 50%;
+  }
+
+  .toolbar-btns /deep/ .v-btn--active:before,
+  .toolbar-btns /deep/ .v-btn:focus:before,
+  .toolbar-btns /deep/ .v-btn:hover:before {
+    height: 5px;
+    width: 5px;
+    border-radius: 99999px;
+    background-color: #edb48e;
+    opacity: 1;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, calc(-100% - 5px));
   }
 </style>
