@@ -3,11 +3,11 @@
     <v-layout wrap column class="whitebox primary--text" v-if="$vuetify.breakpoint.mdAndUp">
       <v-flex shrink><h2>Hi There</h2></v-flex>
       <v-flex shrink class="py-2"><hr class="secondary"/></v-flex>
-      <v-flex shrink>
+      <v-flex shrink :class="{ 'big-font': $vuetify.breakpoint.xlOnly }">
         <p>Diplômé de la Fonderie de l’Image, je suis<br/>
           graphiste print / webdesigner.</p>
       </v-flex>
-      <v-flex shrink>
+      <v-flex shrink :class="{ 'big-font': $vuetify.breakpoint.xlOnly }">
         <p>Du projet le plus simple, à la direction artistique<br/>
           globale d’une marque ; je cherche des réponses<br/>
           sur mesures, afin de créer des univers<br/>
@@ -16,7 +16,7 @@
           design graphique, de la communication visuelle,<br/>
           la publicité, l’édition.</p>
       </v-flex>
-      <v-flex shrink>
+      <v-flex shrink :class="{ 'big-font': $vuetify.breakpoint.xlOnly }">
         <p>Suivant vos besoins, je m’entoure des<br/>
           professionnels (développeurs, imprimeurs,<br/>
           photographes…) nécessaires à la réalisation de<br/>
@@ -104,6 +104,10 @@ export default class Introduction extends Vue {
     font-size: 2em;
     letter-spacing: 1px;
     font-family: Graceland;
+  }
+
+  .big-font {
+    font-size: 1.5em;
   }
 
   .whitebox h3 {
