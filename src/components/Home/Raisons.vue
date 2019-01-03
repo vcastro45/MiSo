@@ -8,9 +8,9 @@
             <v-flex xs12 sm8 md4 class="quatre-raisons">
               <img :src="reasonImg" alt="4 bonnes raisons de me confier vos projets" width="100%">
               <template v-if="$vuetify.breakpoint.mdAndUp">
-                <img :src="pouce" alt="pouce" class="pouce" ref="pouce" @mouseover="animatePouce()"/>
-                <div class="plus secondary--text" ref="plus">+1</div>
-                <img :src="hoverMe" alt="hover me" class="hover-me"/>
+                <img :src="pouce" alt="pouce" class="pouce" ref="pouce" @mouseover="animatePouce()" :style="$vuetify.breakpoint.xlOnly ? `width: 100px` : `width: 60px;`"/>
+                <div class="plus secondary--text" ref="plus" :style="$vuetify.breakpoint.xlOnly ? `font-size: 3em` : `font-size: 2em`">+1</div>
+                <img :src="hoverMe" alt="hover me" class="hover-me" :style="$vuetify.breakpoint.xlOnly ? `height: 150px` : `height: 90px;`"/>
               </template>
               <div class="separator primary"></div>
             </v-flex>
@@ -20,8 +20,8 @@
           <v-layout wrap justify-space-around>
             <v-flex :shrink="$vuetify.breakpoint.mdAndUp" :xs12="$vuetify.breakpoint.smAndDown" class="reason secondary lighten-1 px-5 py-4"
                     v-for="(reason, i) of reasons" :key="i">
-              <img :src="reason.img" alt="reason image" height="100px" class="py-4">
-              <p class="primary--text">{{ reason.text }}</p>
+              <img :src="reason.img" alt="reason image" :height="$vuetify.breakpoint.xlOnly ? `150px` : `100px`" class="py-4">
+              <p class="primary--text" :style="$vuetify.breakpoint.xlOnly ? `font-size:1.7em` : `font-size:1em`">{{ reason.text }}</p>
             </v-flex>
           </v-layout>
         </v-flex>
