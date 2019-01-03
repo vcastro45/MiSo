@@ -73,8 +73,7 @@ export default class NavMenu extends Vue {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    font-family: NouvelleVague, Arial, Helvetica, sans-serif;
-    font-weight: bold;
+    font-family: PistolliRoman, Arial, Helvetica, sans-serif;
   }
 
   .work-together::before {
