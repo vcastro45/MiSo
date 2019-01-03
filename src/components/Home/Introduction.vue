@@ -42,18 +42,29 @@
       </v-flex>
       <v-flex xs2 md1>
         <v-layout :column="$vuetify.breakpoint.mdAndUp" :justify-space-around="$vuetify.breakpoint.smAndDown" wrap :justify-center="$vuetify.breakpoint.mdAndUp" :fill-height="$vuetify.breakpoint.mdAndUp" class="social" :class="{ 'vertical-center': $vuetify.breakpoint.smAndDown }">
-          <a href="https://www.behance.net/hello1818" target="_blank" class="flex shrink py-3">
-            <v-icon color="primary" class="behance">mdi-behance</v-icon>
-          </a>
-          <a href="https://www.facebook.com/mi.so.graphiste/" target="_blank" class="flex shrink py-3">
-            <v-icon color="primary">mdi-facebook</v-icon>
-          </a>
-          <a href="https://www.linkedin.com/in/micka%C3%ABl-sossi-516560131/" target="_blank" class="flex shrink py-3">
-            <v-icon color="primary">mdi-linkedin</v-icon>
-          </a>
-          <a href="https://www.instagram.com/mi.so_graphiste/" target="_blank" class="flex shrink py-3">
-            <v-icon color="primary">mdi-instagram</v-icon>
-          </a>
+          <v-hover>
+            <a href="https://www.behance.net/hello1818" target="_blank" class="flex shrink py-3" slot-scope="{ hover }">
+              <v-icon :color="hover ? `secondary` : `primary`" class="behance">mdi-behance</v-icon>
+            </a>
+          </v-hover>
+
+          <v-hover>
+            <a href="https://www.facebook.com/mi.so.graphiste/" target="_blank" class="flex shrink py-3" slot-scope="{ hover }">
+              <v-icon :color="hover ? `secondary` : `primary`">mdi-facebook</v-icon>
+            </a>
+          </v-hover>
+
+          <v-hover>
+            <a href="https://www.linkedin.com/in/micka%C3%ABl-sossi-516560131/" target="_blank" class="flex shrink py-3" slot-scope="{ hover }">
+              <v-icon :color="hover ? `secondary` : `primary`">mdi-linkedin</v-icon>
+            </a>
+          </v-hover>
+
+          <v-hover>
+            <a href="https://www.instagram.com/mi.so_graphiste/" target="_blank" class="flex shrink py-3" slot-scope="{ hover }">
+              <v-icon :color="hover ? `secondary` : `primary`">mdi-instagram</v-icon>
+            </a>
+          </v-hover>
         </v-layout>
       </v-flex>
     </v-layout>
