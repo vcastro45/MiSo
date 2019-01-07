@@ -20,8 +20,8 @@
           <v-layout wrap justify-space-around>
             <v-flex :shrink="$vuetify.breakpoint.mdAndUp" :xs12="$vuetify.breakpoint.smAndDown" class="reason secondary lighten-1 px-5 py-4"
                     v-for="(reason, i) of reasons" :key="i">
-              <img :src="reason.img" alt="reason image" :height="$vuetify.breakpoint.xlOnly ? `150px` : `100px`" class="py-4">
-              <p class="primary--text" :style="$vuetify.breakpoint.xlOnly ? `font-size:1.7em` : `font-size:1em`">{{ reason.text }}</p>
+              <img :src="reason.img" alt="reason image" :height="$vuetify.breakpoint.xlOnly ? `125px` : `100px`" class="py-4">
+              <p class="primary--text" :style="$vuetify.breakpoint.xlOnly ? `font-size:1.5em` : `font-size:1em`">{{ reason.text }}</p>
             </v-flex>
           </v-layout>
         </v-flex>

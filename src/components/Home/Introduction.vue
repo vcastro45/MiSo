@@ -1,6 +1,8 @@
 <template>
   <div class="introduction" ref="introduction" id="introduction">
+
     <v-layout wrap column class="whitebox primary--text" v-if="$vuetify.breakpoint.mdAndUp">
+      <div class="pulse-btn"><v-icon class="pulse pa-1">mdi-chevron-right</v-icon></div>
       <v-flex shrink><h2>Hi There</h2></v-flex>
       <v-flex shrink class="py-2"><hr class="secondary"/></v-flex>
       <v-flex shrink :class="{ 'big-font': $vuetify.breakpoint.xlOnly }">
@@ -31,6 +33,8 @@
         </h3>
       </v-flex>
     </v-layout>
+
+
     <v-layout :wrap="$vuetify.breakpoint.mdAndUp" :column="$vuetify.breakpoint.smAndDown" style="height: 100%;">
       <v-spacer v-if="$vuetify.breakpoint.mdAndUp"/>
       <v-flex xs10 class="eye-frame">
@@ -104,11 +108,17 @@ export default class Introduction extends Vue {
     top: 0;
     left: 0;
     width: calc(50vw - 180px);
+    transform: translateX(calc(-100% + 70px));
     height: 100%;
     padding: 40px 70px 0 70px;
     overflow: hidden;
     background-color: rgba(255, 255, 255, .7);
     z-index: 1;
+    transition: transform .6s cubic-bezier(0.66, 0, 0, 1);
+  }
+
+  .whitebox:hover {
+    transform: translateX(0);
   }
 
   .whitebox h2 {
@@ -201,4 +211,29 @@ export default class Introduction extends Vue {
       display: none;
     }
   }
+
+  .pulse-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-20px, -50%);
+  }
+  .pulse {
+    box-shadow: 0 0 0 0 rgba(232, 234, 237, 0.7);
+    border-radius: 999px;
+    cursor: pointer;
+    -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  }
+
+  .pulse:hover {
+    -webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;
+  }
+
+  @-webkit-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(232, 234, 237, 0);}}
+  @-moz-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(232, 234, 237, 0);}}
+  @-ms-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(232, 234, 237, 0);}}
+  @keyframes pulse {to {box-shadow: 0 0 0 20px rgba(232, 234, 237, 0);}}
 </style>
