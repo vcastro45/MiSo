@@ -105,7 +105,7 @@ export default class NavMenu extends Vue {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh + 40px);
     transform: translateX(-100%);
     transition: transform 1.25s cubic-bezier(0.66, 0, 0, 1);
   }
