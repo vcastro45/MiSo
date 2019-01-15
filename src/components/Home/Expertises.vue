@@ -2,7 +2,7 @@
   <div class="expertises" id="expertises">
     <v-layout wrap>
       <v-flex xs12>
-        <v-layout wrap justify-center v-if="$vuetify.breakpoint.mdAndUp">
+        <v-layout wrap justify-center v-if="$vuetify.breakpoint.smAndUp">
           <v-flex class="slider-navigator">
             <v-layout column fill-height justify-center @click="goToPreviousPage">
               <v-icon large color="primary">mdi-arrow-left</v-icon>
@@ -10,8 +10,8 @@
           </v-flex>
           <v-flex xs11 style="overflow: hidden">
             <v-layout class="carousel-slider" ref="carouselSlider" wrap
-                      :style="`width: ${expertises.length / 6 * 100}%;${translationStyle};`">
-              <v-flex xs2 class="py-5"
+                      :style="`width: ${sliderWidth}%;${translationStyle};`">
+              <v-flex xs12 sm2 class="py-5"
                       v-for="(expertise, index) in expertises" :key="index">
                 <v-layout class="fill-height">
                   <v-flex shrink class="px-4 fill-height">
@@ -35,21 +35,43 @@
         </v-layout>
 
         <v-layout wrap v-else>
-          <v-flex xs12 sm6 class="py-5"
-                  :style="`background-color: ${expertise.color};`"
-                  v-for="(expertise, index) in expertises" :key="index">
-            <v-layout>
-              <v-flex shrink class="px-4">
-                <img :src="require(`../../assets/pictos/${index + 1}.png`)"/>
-              </v-flex>
-              <v-flex class="expertise-text">
-                <div class="px-3">
-                  <h4 class="primary--text">{{ expertise.title }}</h4>
-                  <p>{{ expertise.text }}</p>
-                </div>
-              </v-flex>
-            </v-layout>
-          </v-flex>
+          <v-carousel hide-controls
+                      hide-delimiters
+                      class="elevation-0"
+                      height="150">
+            <v-carousel-item
+                v-for="(expertise, index) in expertises"
+                :key="index"
+            >
+              <v-layout>
+                <v-flex shrink class="px-4">
+                  <img :src="expertise.img"/>
+                </v-flex>
+                <v-flex class="expertise-text">
+                  <div class="px-3">
+                    <h4 class="primary--text">{{ expertise.title }}</h4>
+                    <p>{{ expertise.text }}</p>
+                  </div>
+                </v-flex>
+              </v-layout>
+            </v-carousel-item>
+          </v-carousel>
+
+          <!--<v-flex xs12 sm6 class="py-5"-->
+                  <!--:style="`background-color: ${expertise.color};`"-->
+                  <!--v-for="(expertise, index) in expertises" :key="index">-->
+            <!--<v-layout>-->
+              <!--<v-flex shrink class="px-4">-->
+                <!--<img :src="require(`../../assets/pictos/${index + 1}.png`)"/>-->
+              <!--</v-flex>-->
+              <!--<v-flex class="expertise-text">-->
+                <!--<div class="px-3">-->
+                  <!--<h4 class="primary&#45;&#45;text">{{ expertise.title }}</h4>-->
+                  <!--<p>{{ expertise.text }}</p>-->
+                <!--</div>-->
+              <!--</v-flex>-->
+            <!--</v-layout>-->
+          <!--</v-flex>-->
         </v-layout>
       </v-flex>
     </v-layout>
@@ -64,6 +86,10 @@ type Expertise = { title: string, text: string, img: string }
 @Component
 export default class Expertises extends Vue {
   page: number = 0
+
+  get sliderWidth (): number {
+    return this.expertises.length / 6 * 100
+  }
 
   get stepWidth (): number {
     return 100 / (this.expertises.length / 2)
