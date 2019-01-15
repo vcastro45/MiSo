@@ -1,6 +1,7 @@
 <template>
   <div class="Home">
     <introduction/>
+    <white-box :closable="false" v-if="$vuetify.breakpoint.xsOnly"/>
     <raisons/>
     <expertises/>
     <tagline>
@@ -27,12 +28,14 @@ import Tagline from '@/components/Tagline.vue'
 import Portfolio from '@/components/Home/Portfolio.vue'
 import Testimonials from '@/components/Home/Testimonials.vue'
 import Contact from '@/components/Home/Contact.vue'
+import WhiteBox from '@/components/Home/WhiteBox.vue'
 import axios from 'axios'
 
 type PortfolioItem = { title?: string, description?: string, link?: string, date?: string }
 @Component({
   components: {
     Introduction,
+    WhiteBox,
     Raisons,
     Expertises,
     Tagline,
