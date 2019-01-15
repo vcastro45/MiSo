@@ -8,9 +8,9 @@
       </v-layout>
     </v-flex>
     <v-flex>
-      <v-carousel hide-delimiters next-icon="mdi-arrow-right" prev-icon="mdi-arrow-left" class="elevation-0">
+      <v-carousel hide-delimiters :hide-controls="$vuetify.breakpoint.xsOnly" next-icon="mdi-arrow-right" prev-icon="mdi-arrow-left" class="elevation-0">
         <v-carousel-item v-for="(quote, index) of quotes" :key="index">
-          <v-layout column justify-center fill-height class="px-6">
+          <v-layout column justify-center fill-height :class="{ 'px-6': $vuetify.breakpoint.smAndUp, 'px-1': $vuetify.breakpoint.xsOnly }">
             <v-flex shrink>
               <h3 class="primary--text quote-text">{{ quote.text }}</h3>
             </v-flex>
