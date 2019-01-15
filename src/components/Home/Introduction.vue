@@ -2,7 +2,7 @@
   <div class="introduction" ref="introduction" id="introduction">
 
     <v-layout wrap column class="whitebox primary--text" v-if="$vuetify.breakpoint.mdAndUp">
-      <div class="pulse-btn"><v-icon class="pulse pa-1">mdi-chevron-right</v-icon></div>
+      <div class="pulse-btn"><v-icon class="pulse pa-1" color="primary">mdi-chevron-right</v-icon></div>
       <v-flex shrink><h2>Hi There</h2></v-flex>
       <v-flex shrink class="py-2"><hr class="secondary"/></v-flex>
       <v-flex shrink :class="{ 'big-font': $vuetify.breakpoint.xlOnly }">
@@ -173,7 +173,7 @@ export default class Introduction extends Vue {
     transform: translate(-20px, -50%);
   }
   .pulse {
-    box-shadow: 0 0 0 0 rgba(232, 234, 237, 0.7);
+    box-shadow: 0 0 0 0 rgba(237, 180, 142, 0.7);
     border-radius: 999px;
     cursor: pointer;
     -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
@@ -186,8 +186,8 @@ export default class Introduction extends Vue {
     -webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;
   }
 
-  @-webkit-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(232, 234, 237, 0);}}
-  @-moz-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(232, 234, 237, 0);}}
-  @-ms-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(232, 234, 237, 0);}}
-  @keyframes pulse {to {box-shadow: 0 0 0 20px rgba(232, 234, 237, 0);}}
+  @-webkit-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(237, 180, 142, 0);}}
+  @-moz-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(237, 180, 142, 0);}}
+  @-ms-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(237, 180, 142, 0);}}
+  @keyframes pulse {to {box-shadow: 0 0 0 20px rgba(237, 180, 142, 0);}}
 </style>
