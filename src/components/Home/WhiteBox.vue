@@ -34,20 +34,20 @@
 </template>
 
 <script lang="ts">
-  import { Vue, Component, Prop} from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
-  @Component
-  export default class WhiteBox extends Vue {
-    @Prop({ type: Boolean, default: true })
-    closable!: boolean
+@Component
+export default class WhiteBox extends Vue {
+  @Prop({ type: Boolean, default: true })
+  closable!: boolean
 
-    window = window
-    introduction: HTMLElement | null = null
+  window = window
+  introduction: HTMLElement | null = null
 
-    mounted () {
-      this.introduction = this.$refs.introduction as HTMLElement
-    }
+  mounted () {
+    this.introduction = this.$refs.introduction as HTMLElement
   }
+}
 </script>
 
 <style scoped>
