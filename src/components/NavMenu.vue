@@ -21,31 +21,45 @@
       </v-flex>
     </v-layout>
   </div>
+
   <div class="nav-menu mobile" :class="{ 'fixed': fixed }" v-else>
     <v-layout row class="nav-menu-header pa-3 white" justify-center>
       <v-icon large color="primary" class="close-btn" @click="open = true">mdi-menu</v-icon>
       <v-flex shrink><img class="logo" :src="logo" alt="logo" height="20"></v-flex>
     </v-layout>
-    <div class="panel primary" :class="{ 'open': open }" v-touch="{ left: () => close() }">
-      <v-layout row class="nav-menu-header pa-3" justify-center>
-        <v-icon large color="white" class="close-btn" @click="open = false">mdi-close</v-icon>
-        <v-flex shrink><img class="logo mobile" :src="logo" alt="logo" height="20"></v-flex>
-      </v-layout>
-      <v-layout column justify-center fill-height>
-        <v-flex shrink v-for="(button, i) of buttons" :key="i">
-          <a :href="button.link" @click="close()" class="mobile-btn uppercase white--text text-xs-center py-2">
-            {{ button.label }}
-          </a>
-        </v-flex>
-      </v-layout>
-    </div>
+
+    <v-layout column justify-space-between class="panel primary" :class="{ 'open': open }" v-touch="{ left: () => close() }">
+      <v-flex shrink>
+        <v-layout row class="nav-menu-header-panel pa-3" justify-center>
+          <v-icon large color="white" class="close-btn" @click="open = false">mdi-close</v-icon>
+          <v-flex shrink><img class="logo mobile" :src="logo" alt="logo" height="20"></v-flex>
+        </v-layout>
+      </v-flex>
+      <v-flex shrink>
+        <v-layout column justify-center fill-height>
+          <v-flex shrink v-for="(button, i) of buttons" :key="i">
+            <a :href="button.link" @click="close()" class="mobile-btn uppercase white--text text-xs-center py-2">
+              {{ button.label }}
+            </a>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+      <v-flex shrink>
+        <socials class="socials"/>
+      </v-flex>
+    </v-layout>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
+import Socials from './Socials.vue'
 
-@Component
+@Component({
+  components: {
+    Socials
+  }
+})
 export default class NavMenu extends Vue {
   @Prop({ type: Boolean, default: false })
   fixed: boolean
@@ -69,6 +83,16 @@ export default class NavMenu extends Vue {
 </script>
 
 <style scoped>
+  .panel > * {
+    z-index: 2;
+    position: relative;
+  }
+
+  .socials {
+    width: 100%;
+    z-index: 3;
+  }
+
   .close-btn {
     position: absolute;
     left: 12px;
@@ -80,6 +104,10 @@ export default class NavMenu extends Vue {
     top: 0;
     left: 0;
     width: 100%;
+  }
+
+  .nav-menu mobile .nav-menu-header {
+    z-index: 3;
   }
 
   .mobile-btn {
@@ -100,12 +128,24 @@ export default class NavMenu extends Vue {
     width: 100%;
   }
 
+  .panel:before {
+    background-color: inherit;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 200vh;
+    width: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
   .panel {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh + 40px);
+    height: 100vh;
     transform: translateX(-100%);
     transition: transform 1.25s cubic-bezier(0.66, 0, 0, 1);
   }

@@ -41,35 +41,11 @@
         <div class="subframe">
           <img :src="require('../../assets/bg-eye.svg')"class="bg-eye"/>
           <eye class="eye" :reference="introduction"/>
-          <arrow class="go-next pointer" @click.native="window.location.replace('#raisons')"/>
+          <arrow class="go-next pointer" @click.native="window.location.replace('#raisons')" v-if="$vuetify.breakpoint.smAndUp"/>
         </div>
       </v-flex>
       <v-flex xs2 md1>
-        <v-layout :column="$vuetify.breakpoint.mdAndUp" :justify-space-around="$vuetify.breakpoint.smAndDown" wrap :justify-center="$vuetify.breakpoint.mdAndUp" :fill-height="$vuetify.breakpoint.mdAndUp" class="social" :class="{ 'vertical-center': $vuetify.breakpoint.smAndDown }">
-          <v-hover>
-            <a href="https://www.behance.net/hello1818" target="_blank" class="flex shrink py-3" slot-scope="{ hover }">
-              <v-icon :color="hover ? `secondary` : `primary`" class="behance">mdi-behance</v-icon>
-            </a>
-          </v-hover>
-
-          <v-hover>
-            <a href="https://www.facebook.com/mi.so.graphiste/" target="_blank" class="flex shrink py-3" slot-scope="{ hover }">
-              <v-icon :color="hover ? `secondary` : `primary`">mdi-facebook</v-icon>
-            </a>
-          </v-hover>
-
-          <v-hover>
-            <a href="https://www.linkedin.com/in/micka%C3%ABl-sossi-516560131/" target="_blank" class="flex shrink py-3" slot-scope="{ hover }">
-              <v-icon :color="hover ? `secondary` : `primary`">mdi-linkedin</v-icon>
-            </a>
-          </v-hover>
-
-          <v-hover>
-            <a href="https://www.instagram.com/mi.so_graphiste/" target="_blank" class="flex shrink py-3" slot-scope="{ hover }">
-              <v-icon :color="hover ? `secondary` : `primary`">mdi-instagram</v-icon>
-            </a>
-          </v-hover>
-        </v-layout>
+        <socials/>
       </v-flex>
     </v-layout>
   </div>
@@ -79,11 +55,13 @@
 import { Vue, Component } from 'vue-property-decorator'
 import Eye from './Eye.vue'
 import Arrow from '../Arrow.vue'
+import Socials from '../Socials.vue'
 
 @Component({
   components: {
     Eye,
-    Arrow
+    Arrow,
+    Socials
   }
 })
 export default class Introduction extends Vue {
@@ -143,30 +121,6 @@ export default class Introduction extends Vue {
   .go-next {
     left: 50%;
     transform: translateY(calc(-100% - 10px));
-  }
-
-  .social i {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.3rem;
-  }
-
-  .social i.behance {
-    font-size: 1.5rem !important;
-  }
-
-  .social > div {
-    padding: 10px 0;
-    cursor: pointer;
-  }
-
-  .social > div:first-of-type {
-    padding-top: 0;
-  }
-
-  .social > div:last-of-type {
-    padding-bottom: 0;
   }
 
   .bg-eye {
