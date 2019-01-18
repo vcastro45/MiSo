@@ -1,13 +1,13 @@
 <template>
   <v-layout wrap column class="whitebox primary--text" :class="{ 'closable': closable, 'px-4': $vuetify.breakpoint.xsOnly }">
     <div class="pulse-btn" v-if="closable"><v-icon class="pulse pa-1" color="primary">mdi-chevron-right</v-icon></div>
-    <v-flex shrink><h2>Hi There</h2></v-flex>
-    <v-flex shrink class="py-2"><hr class="secondary"/></v-flex>
-    <v-flex shrink :class="{ 'big-font': $vuetify.breakpoint.xlOnly }">
+    <v-flex shrink class="noshow"><h2>Hi There</h2></v-flex>
+    <v-flex shrink class="py-2 noshow"><hr class="secondary"/></v-flex>
+    <v-flex shrink  class="noshow" :class="{ 'big-font': $vuetify.breakpoint.xlOnly }">
       <p>Diplômé de la Fonderie de l’Image, je suis<br/>
         graphiste print / webdesigner.</p>
     </v-flex>
-    <v-flex shrink :class="{ 'big-font': $vuetify.breakpoint.xlOnly }">
+    <v-flex shrink class="noshow" :class="{ 'big-font': $vuetify.breakpoint.xlOnly }">
       <p>Du projet le plus simple, à la direction artistique<br/>
         globale d’une marque ; je cherche des réponses<br/>
         sur mesures, afin de créer des univers<br/>
@@ -16,13 +16,13 @@
         design graphique, de la communication visuelle,<br/>
         la publicité, l’édition.</p>
     </v-flex>
-    <v-flex shrink :class="{ 'big-font': $vuetify.breakpoint.xlOnly }">
+    <v-flex shrink class="noshow" :class="{ 'big-font': $vuetify.breakpoint.xlOnly }">
       <p>Suivant vos besoins, je m’entoure des<br/>
         professionnels (développeurs, imprimeurs,<br/>
         photographes…) nécessaires à la réalisation de<br/>
         vos outils.</p>
     </v-flex>
-    <v-flex shrink class="strongimg">
+    <v-flex shrink class="strongimg noshow">
       <h3 class="secondary--text">
         <span class="line">Pour une image</span>
         <span class="line">forte,</span>
@@ -57,7 +57,6 @@ export default class WhiteBox extends Vue {
     overflow: hidden;
     background-color: rgba(255, 255, 255, .7);
     z-index: 1;
-    transition: transform .6s cubic-bezier(0.66, 0, 0, 1);
   }
 
   .whitebox.closable {
@@ -66,10 +65,20 @@ export default class WhiteBox extends Vue {
     left: 0;
     width: calc(50vw - 180px);
     transform: translateX(calc(-100% + 70px));
+    transition: transform .6s cubic-bezier(0.66, 0, 0, 1);
   }
 
-  .whitebox:hover {
+  .whitebox.closable:hover {
     transform: translateX(0);
+  }
+
+  .whitebox.closable .noshow {
+    opacity: 0;
+    transition: opacity .5s ease-in;
+  }
+
+  .whitebox.closable:hover .noshow {
+    opacity: 1;
   }
 
   .whitebox h2 {
