@@ -5,7 +5,7 @@
               :style="$vuetify.breakpoint.mdAndUp ? 'padding: 0 70px;' : ''"
     >
       <v-flex shrink v-if="$vuetify.breakpoint.mdAndUp">
-        <a href="#"><img class="logo" :src="logo" alt="logo" height="20"></a>
+        <a href="#" @contextmenu.prevent="openHiddenMenu"><img class="logo" :src="logo" alt="logo" height="20"></a>
       </v-flex>
       <v-flex>
         <v-layout justify-center style="height: 100%;" class="menu-buttons">
@@ -20,6 +20,18 @@
         </div>
       </v-flex>
     </v-layout>
+    <v-menu
+      v-model="showMenu"
+      :position-x="x"
+      :position-y="y"
+      absolute
+      offset-y>
+      <v-list>
+        <v-list-tile @click="goToAdmin()">
+          <v-list-tile-title>Administration</v-list-tile-title>
+        </v-list-tile>
+      </v-list>
+    </v-menu>
   </div>
 
   <div class="nav-menu mobile" :class="{ 'fixed': fixed }" v-else>
@@ -65,8 +77,23 @@ export default class NavMenu extends Vue {
   fixed: boolean
 
   open: boolean = false
-
   logo: string = require('../assets/logo.svg')
+  showMenu: boolean = false
+  x: number = 0
+  y: number = 0
+
+  openHiddenMenu (e: any) {
+    this.showMenu = false
+    this.x = e.clientX
+    this.y = e.clientY
+    this.$nextTick(() => {
+      this.showMenu = true
+    })
+  }
+
+  goToAdmin () {
+    console.log('goto admin')
+  }
 
   close () {
     this.open = false
