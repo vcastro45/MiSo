@@ -59,6 +59,11 @@ export default class Introduction extends Vue {
     transform: translateY(calc(-100% - 10px));
   }
 
+  .eye-frame {
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
   .bg-eye {
     position: absolute;
     left: 45%;
