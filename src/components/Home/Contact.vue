@@ -18,7 +18,7 @@
     </v-flex>
 
     <!-- Contact form hidden until backend is not ready -->
-    <v-flex xs12 md6 class="px-3" :class="{ 'mt-4': $vuetify.breakpoint.smAndDown }" v-if="false">
+    <v-flex xs12 md6 class="px-3" :class="{ 'mt-4': $vuetify.breakpoint.smAndDown }">
       <v-layout justify-center class="right-part">
         <v-flex style="max-width: 350px">
           <v-form v-model="validForm" ref="contactForm">
@@ -69,7 +69,9 @@ export default class Contact extends Vue {
 
   sendMail () {
     if ((this as any).$refs.contactForm.validate()) {
-      console.log('Sending email...')
+      const subject = 'MiSo.fr - Demande de prestation'
+      const text = `${this.contact.message}\r\n\r\n${this.contact.name},\r\n${this.contact.email}`
+      window.open(encodeURI(`mailto:hello@mi-so.fr?subject=${subject}&body=${text}`))
     }
   }
 }
