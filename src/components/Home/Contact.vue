@@ -17,9 +17,8 @@
       </v-layout>
     </v-flex>
 
-    <!-- Contact form hidden until backend is not ready -->
     <v-flex xs12 md6 class="px-3" :class="{ 'mt-4': $vuetify.breakpoint.smAndDown }">
-      <v-layout justify-center class="right-part">
+      <v-layout :justify-center="$vuetify.breakpoint.xsOnly" class="right-part">
         <v-flex style="max-width: 350px">
           <v-form v-model="validForm" ref="contactForm">
             <v-text-field v-model="contact.name"
@@ -45,7 +44,14 @@
                         dark
                         color="white"
                         required/>
-            <v-btn outline block color="secondary" @click="sendMail()">Contactez-moi</v-btn>
+            <v-layout>
+              <v-flex xs12 md8>
+                <v-btn outline block color="secondary" @click="sendMail()">Contactez-moi</v-btn>
+              </v-flex>
+              <v-flex md4 class="hidden-sm-and-down">
+                <img :src="dontBeShy" alt="Don't be shy !" class="dont-be-shy">
+              </v-flex>
+            </v-layout>
           </v-form>
         </v-flex>
       </v-layout>
@@ -59,6 +65,7 @@ import { Vue, Component } from 'vue-property-decorator'
 type ContactForm = { name: string, email: string, message: string }
 @Component
 export default class Contact extends Vue {
+  dontBeShy: string = require('@/assets/dont-be-shy.png')
   validForm: boolean = true
   contact: ContactForm = { name: '', email: '', message: '' }
   rules = {
@@ -100,5 +107,15 @@ export default class Contact extends Vue {
 
   .contacts {
     font-size: 1.1em;
+  }
+
+  .contact-submit-wrapper {
+    position: relative;
+  }
+
+  .dont-be-shy {
+    opacity: .4;
+    width: 150%;
+    transform: translate(10px, -10px);
   }
 </style>
