@@ -8,7 +8,7 @@
       </v-layout>
     </v-flex>
     <v-flex>
-      <v-carousel hide-delimiters :hide-controls="$vuetify.breakpoint.xsOnly" next-icon="mdi-arrow-right" prev-icon="mdi-arrow-left" class="elevation-0">
+      <v-carousel v-model="index" hide-delimiters :hide-controls="$vuetify.breakpoint.xsOnly" next-icon="mdi-arrow-right" prev-icon="mdi-arrow-left" class="elevation-0">
         <v-carousel-item v-for="(quote, index) of quotes" :key="index">
           <v-layout column justify-center fill-height :class="{ 'px-6': $vuetify.breakpoint.smAndUp, 'px-1': $vuetify.breakpoint.xsOnly }">
             <v-flex shrink>
@@ -21,16 +21,23 @@
         </v-carousel-item>
       </v-carousel>
     </v-flex>
+    <v-flex>
+      <paginator v-model="index" :length="quotes.length"/>
+    </v-flex>
   </v-layout>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import Paginator from '@/components/Paginator.vue'
 
 type Quote = { text?: string, author?: string }
-@Component
+@Component({
+  components: {Paginator}
+})
 export default class Testimonials extends Vue {
-  star: string = require('../../assets/pictos/star.png')
+  index: number = 0
+  star: string = require('@/assets/pictos/star.png')
   quotes: Quote[] = [
     { text: 'Nous collaborons avec Mickaël depuis la création de notre entreprise pour la réalisation de nos documents de communication. Cette personne grâce à ses idées, nous a permis d\'avoir une identité forte et reconnaissable sur la toile. Mickaël est créatif et nous n\'avons pas besoin d\'y revenir à 20 fois. Réactivité, créativité, professionnalisme sont les mots qui le définissent.', author: 'Antoine Berguer - Freed\'home camper' },
     { text: 'J’ai eu l’occasion de travailler plusieurs fois avec Mickaël, que ce soit sur de la création de Logo ou du webdesign,  j’ai à chaque fois été plus que satisfait du résultat. Mickaël est quelqu’un de créatif et de passionné. Je vous le recommande !', author: 'Victor Castro-Cintas - Webelier' }
