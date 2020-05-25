@@ -11,7 +11,7 @@
         <v-flex shrink class="contacts">
           <div>Mickaël Sossi</div>
           <div>T<span class="slash"></span><a href="tel:0666039963" class="white--text">+33 6.66.03.99.63</a></div>
-          <div>A<span class="slash"></span>Paris - France</div>
+          <div>A<span class="slash"></span>Melun - France</div>
           <div>M<span class="slash"></span><a href="mailto:hello@mi-so.fr" class="white--text">hello@mi-so.fr</a></div>
         </v-flex>
       </v-layout>

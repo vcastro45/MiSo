@@ -1,59 +1,17 @@
 [
   {
-    "title": "IDENTITÉ VISUELLE VÉHICULE",
-    "description": "Freed’home Camper",
-    "link": "https://www.behance.net/gallery/68659627/Freedhome-Camper-Vanstyle",
-    "img": "freed.png",
-    "date": "Mars 2017"
+    "title": "IDENTITÉ VISUELLE",
+    "description": "Terracia",
+    "link": "https://www.behance.net/gallery/80088531/BRANDING-Terracia",
+    "img": "terracia.png",
+    "date": "Janvier 2020"
   },
   {
-    "title": "INFOGRAPHIE",
-    "description": "1984.Agency",
-    "link": "https://www.behance.net/gallery/67740871/Infographie-Pourquoi-choisir-un-site-franchiseur",
-    "img": "84.png",
-    "date": "Mai 2017"
-  },
-  {
-    "title": "PLAQUETTE COMMERCIALE",
-    "description": "Médusims",
-    "link": "https://www.behance.net/gallery/68867313/Traumasims-Plaquette",
-    "img": "medusims.jpg",
-    "date": "Juillet 2017"
-  },
-  {
-    "title": "INFOGRAPHIE",
-    "description": "1984.Agency",
-    "link": "https://www.behance.net/gallery/68648229/Infographie-Landing-Page",
-    "img": "84-2.png",
-    "date": "Octobre 2017"
-  },
-  {
-    "title": "WEBDESIGN",
-    "description": "Gepacte",
-    "link": "https://www.behance.net/gallery/71046343/Landing-Page",
-    "img": "gepacte.png",
-    "date": "Août 2017"
-  },
-  {
-    "title": "Identité Visuelle",
+    "title": "IDENTITÉ VISUELLE",
     "description": "Office Notarial Laval & Laval-Cassadour",
     "link": "https://www.behance.net/gallery/67487829/Office-Notarial-identit-visuelle",
-    "img": "laval.png",
-    "date": "2017 - 2018"
-  },
-  {
-    "title": "Cartes de voeux",
-    "description": "Office Notarial Laval & Laval-Cassadour",
-    "link": "https://www.behance.net/gallery/73763819/Greeting-cards-Cartes-de-voeux",
     "img": "carte-laval.png",
-    "date": "Décembre 2018"
-  },
-  {
-    "title": "Canvas",
-    "description": "Office Notarial Laval & Laval-Cassadour",
-    "link": "https://www.behance.net/gallery/73764125/Canvas-Lex-est-quodcumque-notamus",
-    "img": "canvas-laval.png",
-    "date": "Septembre 2018"
+    "date": "2017 - 2020"
   },
   {
     "title": "La Gazette des parents parfaits",
@@ -61,5 +19,26 @@
     "link": "https://www.behance.net/gallery/75729375/Gazette-28-pages",
     "img": "gazette.png",
     "date": "Janvier 2019"
+  },
+  {
+    "title": "UI & UX DESIGN DASHBOARD",
+    "description": "Gepacte",
+    "link": "https://www.behance.net/gallery/96872131/DASHBOARD-Gepacte-Property-Management",
+    "img": "gepacte-dashboard.png",
+    "date": "Septembre 2017"
+  },
+  {
+    "title": "UI DESIGN LANDING PAGE",
+    "description": "Gepacte",
+    "link": "https://www.behance.net/gallery/71046343/LANDING-PAGE-Gepacte-Property-Management",
+    "img": "gepacte-lp.png",
+    "date": "Août 2017"
+  },
+  {
+    "title": "DESIGN VÉHICULE",
+    "description": "Freed’home Camper",
+    "link": "https://www.behance.net/gallery/68659627/Freedhome-Camper-Vanstyle",
+    "img": "freed.png",
+    "date": "Mars 2017"
   }
 ]
